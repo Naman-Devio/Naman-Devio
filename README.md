@@ -11,7 +11,7 @@
 <!-- ═══════════════════════════════════════════════════════════ -->
 
 <a href="https://github.com/Naman-Devio">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=800&color=00D4FF&center=true&vCenter=true&multiline=false&random=false&width=600&height=60&lines=Hey+there!+I'm+CallMeDev+👋;Full-Stack+%26+Systems+Dev+⚡;Python+%7C+Go+%7C+Java+%7C+C%2B%2B;Building+things+that+matter+🚀;Open+Source+Contributor+🌍;Code+that+clarifies+✨" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Hey+there!+I'm+CallMeDev+👋;Python+%7C+Go+%7C+Java+%7C+C%2B%2B;Code+that+clarifies.+Stacks+that+simplify." alt="Typing SVG" />
 </a>
 
 <br/>
