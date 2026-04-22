@@ -6,22 +6,22 @@
         50%{opacity:0}
       }
       @keyframes show {
-        0%   {opacity:0;transform:translateY(6px)}
-        3%   {opacity:1;transform:translateY(0)}
-        17%  {opacity:1;transform:translateY(0)}
-        20%  {opacity:0;transform:translateY(-6px)}
+        0%   {opacity:0}
+        3%   {opacity:1}
+        17%  {opacity:1}
+        20%  {opacity:0}
         100% {opacity:0}
       }
       .cur { animation: blink 0.9s step-end infinite; }
-      .ln  { opacity:0; animation: show 20s cubic-bezier(0.4,0,0.2,1) infinite; }
+      .ln  { opacity:0; animation: show 20s linear infinite; }
     </style>
   </defs>
 
-  <!-- ── Window shell ── -->
+  <!-- Window shell -->
   <rect width="800" height="100" rx="12" fill="#0d1117"/>
   <rect x="0.5" y="0.5" width="799" height="99" rx="11.5" fill="none" stroke="#21262d" stroke-width="1"/>
 
-  <!-- ── Title bar ── -->
+  <!-- Title bar -->
   <rect width="800" height="36" rx="12" fill="#161b22"/>
   <rect y="24" width="800" height="12" fill="#161b22"/>
   <line x1="0" y1="36" x2="800" y2="36" stroke="#21262d" stroke-width="0.75"/>
@@ -31,83 +31,60 @@
   <circle cx="46" cy="18" r="6.5" fill="#febc2e"/>
   <circle cx="68" cy="18" r="6.5" fill="#28c840"/>
 
-  <!-- Title-bar label -->
-  <text x="400" y="18" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+  <!-- Title bar label -->
+  <text x="400" y="18"
+        font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
         font-size="12" fill="#484f58" text-anchor="middle" dominant-baseline="middle">
-    naman@devio:&#160;~/projects
+    naman@devio: ~/projects
   </text>
 
-  <!-- ── Shell prompt (always visible) ── -->
-  <text x="20" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+  <!-- Shell prompt -->
+  <text x="20" y="68"
+        font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
         font-size="19" font-weight="700" fill="#00d4ff" dominant-baseline="middle">&#10095;</text>
 
-  <!-- ═══════════════════════════════════════
-       PHRASE 1  — visible at t = 0 → 4 s
-       delay = 0s
-  ════════════════════════════════════════ -->
+  <!-- PHRASE 1 — t=0 to 4s — delay:0s -->
   <g class="ln" style="animation-delay:0s">
-    <text x="50" y="68"
-          font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
           font-size="17" fill="#c9d1d9" dominant-baseline="middle">
-      Hey there! I&#8217;m&#160;<tspan fill="#00d4ff" font-weight="700">CallMeDev</tspan>&#160;&#10024;
+      Hey there! I&#8217;m&#160;<tspan fill="#00d4ff" font-weight="700">CallMeDev</tspan>&#160;&#9889;
     </text>
-    <!-- cursor positioned after text (≈ 50 + 25chars×10.5px ≈ 313) -->
     <rect x="316" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
-  <!-- ═══════════════════════════════════════
-       PHRASE 2  — visible at t = 4 → 8 s
-       delay = -16 s
-  ════════════════════════════════════════ -->
+  <!-- PHRASE 2 — t=4 to 8s — delay:-16s -->
   <g class="ln" style="animation-delay:-16s">
-    <text x="50" y="68"
-          font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
           font-size="17" fill="#c9d1d9" dominant-baseline="middle">
       <tspan fill="#3572A5">Python</tspan>&#160;&#183;&#160;<tspan fill="#f0a500">Java</tspan>&#160;&#183;&#160;<tspan fill="#00ADD8">Go</tspan>&#160;&#183;&#160;<tspan fill="#f34b7d">C/C++</tspan>&#160;&#183;&#160;<tspan fill="#e34c26">HTML</tspan>
     </text>
-    <!-- ≈ 50 + 42chars×10.5 ≈ 491 -->
     <rect x="494" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
-  <!-- ═══════════════════════════════════════
-       PHRASE 3  — visible at t = 8 → 12 s
-       delay = -12 s
-  ════════════════════════════════════════ -->
+  <!-- PHRASE 3 — t=8 to 12s — delay:-12s -->
   <g class="ln" style="animation-delay:-12s">
-    <text x="50" y="68"
-          font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
           font-size="17" fill="#c9d1d9" dominant-baseline="middle">
-      Full-Stack&#160;<tspan fill="#00d4ff">&amp;</tspan>&#160;Systems&#160;Developer&#160;&#9889;
+      Full-Stack&#160;<tspan fill="#00d4ff">&amp;</tspan>&#160;Systems&#160;Developer
     </text>
-    <!-- ≈ 50 + 33chars×10.5 ≈ 396 -->
     <rect x="400" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
-  <!-- ═══════════════════════════════════════
-       PHRASE 4  — visible at t = 12 → 16 s
-       delay = -8 s
-  ════════════════════════════════════════ -->
+  <!-- PHRASE 4 — t=12 to 16s — delay:-8s -->
   <g class="ln" style="animation-delay:-8s">
-    <text x="50" y="68"
-          font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
           font-size="17" fill="#c9d1d9" dominant-baseline="middle">
       Open Source&#160;<tspan fill="#28c840">Contributor</tspan>&#160;&amp;&#160;<tspan fill="#7c3aed">OSS Enthusiast</tspan>
     </text>
-    <!-- ≈ 50 + 48chars×10.5 ≈ 554 -->
     <rect x="558" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
-  <!-- ═══════════════════════════════════════
-       PHRASE 5  — visible at t = 16 → 20 s
-       delay = -4 s
-  ════════════════════════════════════════ -->
+  <!-- PHRASE 5 — t=16 to 20s — delay:-4s -->
   <g class="ln" style="animation-delay:-4s">
-    <text x="50" y="68"
-          font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
           font-size="17" fill="#c9d1d9" dominant-baseline="middle">
       <tspan fill="#00d4ff">Code</tspan>&#160;that clarifies.&#160;<tspan fill="#7c3aed">Stacks</tspan>&#160;that simplify.
     </text>
-    <!-- ≈ 50 + 44chars×10.5 ≈ 512 -->
     <rect x="516" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
