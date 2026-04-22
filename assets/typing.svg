@@ -1,136 +1,91 @@
-<svg width="900" height="140" viewBox="0 0 900 140" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="100" viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      @keyframes matrixRain {
-        0% { opacity: 0; transform: translateY(-20px) scale(0.8); }
-        10% { opacity: 1; transform: translateY(0) scale(1); }
-        90% { opacity: 1; transform: translateY(0) scale(1); }
-        100% { opacity: 0; transform: translateY(20px) scale(1.2); }
+      @keyframes blink {
+        0%,100%{opacity:1}
+        50%{opacity:0}
       }
-      @keyframes cyberCursor {
-        0%, 50% { 
-          width: 12px; height: 24px; 
-          box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
-        }
-        51%, 100% { 
-          width: 12px; height: 24px; 
-          box-shadow: 0 0 5px #00ff88, 0 0 10px #00ff88;
-        }
+      @keyframes show {
+        0%   {opacity:0}
+        3%   {opacity:1}
+        17%  {opacity:1}
+        20%  {opacity:0}
+        100% {opacity:0}
       }
-      @keyframes glassPulse {
-        0%, 100% { filter: brightness(1) contrast(1); }
-        50% { filter: brightness(1.1) contrast(1.05); }
-      }
-      @keyframes particleFloat {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(-30px) rotate(360deg); opacity: 0; }
-      }
-      
-      .matrix { 
-        animation: matrixRain 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite; 
-      }
-      .cyber-cur { 
-        animation: cyberCursor 1.2s ease-in-out infinite; 
-        border-radius: 6px;
-      }
-      .glass { animation: glassPulse 3s ease-in-out infinite; }
-      .particle { animation: particleFloat 3s linear infinite; }
+      .cur { animation: blink 0.9s step-end infinite; }
+      .ln  { opacity:0; animation: show 20s linear infinite; }
     </style>
-    
-    <!-- Neon glow filters -->
-    <filter id="neonGreen">
-      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#00ff88" flood-opacity="0.8"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00ff88" flood-opacity="0.6"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00ff88" flood-opacity="0.3"/>
-    </filter>
-    <filter id="neonBlue">
-      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#00d4ff" flood-opacity="0.8"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00d4ff" flood-opacity="0.6"/>
-    </filter>
-    
-    <!-- Glassmorphism backdrop -->
-    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.1)"/>
-      <stop offset="50%" stop-color="rgba(255,255,255,0.05)"/>
-      <stop offset="100%" stop-color="rgba(255,255,255,0.1)"/>
-    </linearGradient>
   </defs>
 
-  <!-- Cyberpunk glass window -->
-  <rect width="900" height="140" rx="20" fill="linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)"/>
-  <rect x="1" y="1" width="898" height="138" rx="19" fill="none" stroke="rgba(0,255,136,0.3)" stroke-width="2"/>
-  
-  <!-- Glass title bar -->
-  <rect width="900" height="48" rx="20 20 0 0" fill="rgba(30,30,50,0.6)" class="glass"/>
-  <rect x="0" y="36" width="900" height="12" fill="url(#glassGradient)" class="glass"/>
-  <line x1="0" y1="48" x2="900" y2="48" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+  <!-- Window shell -->
+  <rect width="800" height="100" rx="12" fill="#0d1117"/>
+  <rect x="0.5" y="0.5" width="799" height="99" rx="11.5" fill="none" stroke="#21262d" stroke-width="1"/>
 
-  <!-- Neon traffic lights -->
-  <circle cx="32" cy="24" r="8" fill="#ff4757" filter="url(#neonGreen)" class="glass"/>
-  <circle cx="60" cy="24" r="8" fill="#ffa502" filter="url(#neonGreen)" class="glass"/>
-  <circle cx="88" cy="24" r="8" fill="#2ed573" filter="url(#neonGreen)" class="glass"/>
+  <!-- Title bar -->
+  <rect width="800" height="36" rx="12" fill="#161b22"/>
+  <rect y="24" width="800" height="12" fill="#161b22"/>
+  <line x1="0" y1="36" x2="800" y2="36" stroke="#21262d" stroke-width="0.75"/>
 
-  <!-- Neon terminal title -->
-  <text x="450" y="26" font-family="'Fira Code','SF Mono','Monaco',monospace"
-        font-size="14" fill="#00ff88" text-anchor="middle" dominant-baseline="middle"
-        font-weight="600" filter="url(#neonGreen)">naman@cyber-term ~/dev-matrix</text>
+  <!-- Traffic lights -->
+  <circle cx="24" cy="18" r="6.5" fill="#ff5f57"/>
+  <circle cx="46" cy="18" r="6.5" fill="#febc2e"/>
+  <circle cx="68" cy="18" r="6.5" fill="#28c840"/>
 
-  <!-- Matrix-style prompt -->
-  <text x="24" y="82" font-family="'Fira Code','SF Mono','Monaco',monospace"
-        font-size="22" fill="#00ff88" dominant-baseline="middle" 
-        font-weight="800" filter="url(#neonGreen)">▸</text>
+  <!-- Title bar label -->
+  <text x="400" y="18"
+        font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+        font-size="12" fill="#484f58" text-anchor="middle" dominant-baseline="middle">
+    naman@devio: ~/projects
+  </text>
 
-  <!-- PHRASE 1: Matrix intro -->
-  <g class="matrix" style="animation-delay:0s">
-    <text x="58" y="82" font-family="'Fira Code','SF Mono','Monaco',monospace"
-          font-size="19" fill="#00ff88" dominant-baseline="middle" filter="url(#neonGreen)">
-      [SYSTEM] Initializing Dev-Naman v2.0... 🚀
+  <!-- Shell prompt -->
+  <text x="20" y="68"
+        font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+        font-size="19" font-weight="700" fill="#00d4ff" dominant-baseline="middle">&#10095;</text>
+
+  <!-- PHRASE 1 — t=0 to 4s — delay:0s -->
+  <g class="ln" style="animation-delay:0s">
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
+      Hey there! I&#8217;m&#160;<tspan fill="#00d4ff" font-weight="700">Dev-Naman</tspan>&#160;&#9889;
     </text>
-    <rect x="530" y="70" width="12" height="24" rx="6" fill="#00ff88" class="cyber-cur" filter="url(#neonGreen)"/>
-    
-    <!-- Floating particles -->
-    <circle cx="550" cy="75" r="2" fill="#00ff88" class="particle" style="animation-delay:1s"/>
-    <circle cx="570" cy="78" r="1.5" fill="#00ff88" class="particle" style="animation-delay:1.5s"/>
+    <rect x="316" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
-  <!-- PHRASE 2: Tech stack with colors -->
-  <g class="matrix" style="animation-delay:-4s">
-    <text x="58" y="82" font-family="'Fira Code','SF Mono','Monaco',monospace"
-          font-size="19" fill="#ffffff" dominant-baseline="middle">
-      <tspan fill="#ff6b7a" font-weight="700">Python</tspan> | 
-      <tspan fill="#feca57" font-weight="700">Java</tspan> | 
-      <tspan fill="#48dbfb" font-weight="700">Go</tspan> | 
-      <tspan fill="#ff9ff3" font-weight="700">C++</tspan> | 
-      <tspan fill="#54a0ff" font-weight="700">Web</tspan>
+  <!-- PHRASE 2 — t=4 to 8s — delay:-16s -->
+  <g class="ln" style="animation-delay:-16s">
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
+      <tspan fill="#3572A5">Python</tspan>&#160;&#183;&#160;<tspan fill="#f0a500">Java</tspan>&#160;&#183;&#160;<tspan fill="#00ADD8">Go</tspan>&#160;&#183;&#160;<tspan fill="#f34b7d">C/C++</tspan>&#160;&#183;&#160;<tspan fill="#e34c26">HTML</tspan>
     </text>
-    <rect x="620" y="70" width="12" height="24" rx="6" fill="#00ff88" class="cyber-cur" filter="url(#neonGreen)"/>
+    <rect x="494" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
-  <!-- PHRASE 3: Role with 3D effect -->
-  <g class="matrix" style="animation-delay:-8s">
-    <text x="58" y="82" font-family="'Fira Code','SF Mono','Monaco',monospace"
-          font-size="19" fill="#ffffff" dominant-baseline="middle">
-      Full-Stack Architect &amp; <tspan fill="#00ff88" font-weight="800">Systems Ninja</tspan> ⚡
+  <!-- PHRASE 3 — t=8 to 12s — delay:-12s -->
+  <g class="ln" style="animation-delay:-12s">
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
+      Full-Stack&#160;<tspan fill="#00d4ff">&amp;</tspan>&#160;Systems&#160;Developer
     </text>
-    <rect x="580" y="70" width="12" height="24" rx="6" fill="#00ff88" class="cyber-cur" filter="url(#neonGreen)"/>
+    <rect x="400" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
-  <!-- PHRASE 4: OSS with particles -->
-  <g class="matrix" style="animation-delay:-12s">
-    <text x="58" y="82" font-family="'Fira Code','SF Mono','Monaco',monospace"
-          font-size="19" fill="#ffffff" dominant-baseline="middle">
-      <tspan fill="#00ff88" font-weight="800">Open Source</tspan> Warrior &amp; GitHub Legend 🌟
+  <!-- PHRASE 4 — t=12 to 16s — delay:-8s -->
+  <g class="ln" style="animation-delay:-8s">
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
+      Open Source&#160;<tspan fill="#28c840">Contributor</tspan>&#160;&amp;&#160;<tspan fill="#7c3aed">OSS Enthusiast</tspan>
     </text>
-    <rect x="640" y="70" width="12" height="24" rx="6" fill="#00ff88" class="cyber-cur" filter="url(#neonGreen)"/>
+    <rect x="558" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
-  <!-- FINAL PHRASE: Epic tagline -->
-  <g class="matrix" style="animation-delay:-16s">
-    <text x="58" y="82" font-family="'Fira Code','SF Mono','Monaco',monospace"
-          font-size="19" fill="#ffffff" dominant-baseline="middle">
-      <tspan fill="#00ff88" font-weight="800">Code</tspan> that conquers. <tspan fill="#ff6b7a" font-weight="800">Stacks</tspan> that scale. 🔥
+  <!-- PHRASE 5 — t=16 to 20s — delay:-4s -->
+  <g class="ln" style="animation-delay:-4s">
+    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
+          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
+      <tspan fill="#00d4ff">Code</tspan>&#160;that clarifies.&#160;<tspan fill="#7c3aed">Stacks</tspan>&#160;that simplify.
     </text>
-    <rect x="620" y="70" width="12" height="24" rx="6" fill="#00ff88" class="cyber-cur" filter="url(#neonGreen)"/>
+    <rect x="516" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
   </g>
 
 </svg>
