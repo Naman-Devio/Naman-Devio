@@ -1,91 +1,127 @@
-<svg width="800" height="100" viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="120" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       @keyframes blink {
-        0%,100%{opacity:1}
-        50%{opacity:0}
+        0%, 50%{opacity:1}
+        51%, 100%{opacity:0}
       }
       @keyframes show {
-        0%   {opacity:0}
-        3%   {opacity:1}
-        17%  {opacity:1}
-        20%  {opacity:0}
-        100% {opacity:0}
+        0%   {opacity:0; transform: translateY(5px);}
+        5%   {opacity:1; transform: translateY(0);}
+        90%  {opacity:1; transform: translateY(0);}
+        95%  {opacity:0; transform: translateY(-5px);}
+        100% {opacity:0; transform: translateY(0);}
       }
-      .cur { animation: blink 0.9s step-end infinite; }
-      .ln  { opacity:0; animation: show 20s linear infinite; }
+      @keyframes glow {
+        0%, 100% { filter: drop-shadow(0 0 2px rgba(0,212,255,0.5)); }
+        50% { filter: drop-shadow(0 0 8px rgba(0,212,255,0.8)); }
+      }
+      @keyframes traffic-light {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+      }
+      
+      .cur { 
+        animation: blink 1s step-end infinite; 
+        filter: drop-shadow(0 0 4px rgba(0,212,255,0.7));
+      }
+      .ln { 
+        opacity:0; 
+        animation: show 5s ease-in-out infinite; 
+        filter: drop-shadow(0 0 1px rgba(255,255,255,0.3));
+      }
+      .glow { animation: glow 3s ease-in-out infinite; }
+      .traffic { animation: traffic-light 4s ease-in-out infinite; }
+      .prompt-glow { filter: drop-shadow(0 0 4px rgba(0,212,255,0.6)); }
     </style>
+    
+    <!-- Gradient for cursor glow -->
+    <filter id="cursorGlow">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#00d4ff" flood-opacity="0.6"/>
+    </filter>
+    
+    <!-- Subtle background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#0a0e15"/>
+    </radialGradient>
   </defs>
 
-  <!-- Window shell -->
-  <rect width="800" height="100" rx="12" fill="#0d1117"/>
-  <rect x="0.5" y="0.5" width="799" height="99" rx="11.5" fill="none" stroke="#21262d" stroke-width="1"/>
+  <!-- Enhanced window background with gradient -->
+  <rect width="800" height="120" rx="16" fill="url(#bgGradient)"/>
+  <rect x="0.5" y="0.5" width="799" height="119" rx="15.5" fill="none" stroke="#30363d" stroke-width="1"/>
 
-  <!-- Title bar -->
-  <rect width="800" height="36" rx="12" fill="#161b22"/>
-  <rect y="24" width="800" height="12" fill="#161b22"/>
-  <line x1="0" y1="36" x2="800" y2="36" stroke="#21262d" stroke-width="0.75"/>
+  <!-- Enhanced title bar with gradient -->
+  <rect width="800" height="42" rx="16 16 0 0" fill="#161b22"/>
+  <rect y="30" width="800" height="12" fill="linear-gradient(90deg, #21262d, #161b22)"/>
+  <line x1="0" y1="42" x2="800" y2="42" stroke="#30363d" stroke-width="1"/>
 
-  <!-- Traffic lights -->
-  <circle cx="24" cy="18" r="6.5" fill="#ff5f57"/>
-  <circle cx="46" cy="18" r="6.5" fill="#febc2e"/>
-  <circle cx="68" cy="18" r="6.5" fill="#28c840"/>
+  <!-- Enhanced traffic lights with glow -->
+  <circle cx="28" cy="21" r="7" fill="#ff5f57" class="traffic" style="animation-delay:0s;"/>
+  <circle cx="52" cy="21" r="7" fill="#febc2e" class="traffic" style="animation-delay:-1s;"/>
+  <circle cx="76" cy="21" r="7" fill="#28c840" class="traffic" style="animation-delay:-2s;"/>
 
-  <!-- Title bar label -->
-  <text x="400" y="18"
-        font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
-        font-size="12" fill="#484f58" text-anchor="middle" dominant-baseline="middle">
-    naman@devio: ~/projects
+  <!-- Enhanced title bar label with better positioning -->
+  <text x="400" y="22" font-family="'SF Mono','Fira Code','Monaco','Courier New',monospace"
+        font-size="13" fill="#8b949e" text-anchor="middle" dominant-baseline="middle"
+        font-weight="500" letter-spacing="0.3px">
+    naman@devio:~/projects
   </text>
 
-  <!-- Shell prompt -->
-  <text x="20" y="68"
-        font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
-        font-size="19" font-weight="700" fill="#00d4ff" dominant-baseline="middle">&#10095;</text>
+  <!-- Enhanced prompt with glow -->
+  <text x="20" y="75" font-family="'SF Mono','Fira Code','Monaco','Courier New',monospace"
+        font-size="20" font-weight="700" fill="#00d4ff" dominant-baseline="middle" 
+        class="prompt-glow">❯</text>
 
-  <!-- PHRASE 1 — t=0 to 4s — delay:0s -->
-  <g class="ln" style="animation-delay:0s">
-    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
-          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
-      Hey there! I&#8217;m&#160;<tspan fill="#00d4ff" font-weight="700">Dev-Naman</tspan>&#160;&#9889;
+  <!-- PHRASE 1 — 0-5s -->
+  <g class="ln glow" style="animation-delay:0s">
+    <text x="52" y="75" font-family="'SF Mono','Fira Code','Monaco','Courier New',monospace"
+          font-size="18" fill="#c9d1d9" dominant-baseline="middle" letter-spacing="0.2px">
+      Hey there! I'm&#160;<tspan fill="#00d4ff" font-weight="700">Dev-Naman</tspan>&#160;✨
     </text>
-    <rect x="316" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
+    <rect x="320" y="64" width="10" height="21" rx="2" fill="#00d4ff" class="cur" filter="url(#cursorGlow)"/>
   </g>
 
-  <!-- PHRASE 2 — t=4 to 8s — delay:-16s -->
-  <g class="ln" style="animation-delay:-16s">
-    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
-          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
-      <tspan fill="#3572A5">Python</tspan>&#160;&#183;&#160;<tspan fill="#f0a500">Java</tspan>&#160;&#183;&#160;<tspan fill="#00ADD8">Go</tspan>&#160;&#183;&#160;<tspan fill="#f34b7d">C/C++</tspan>&#160;&#183;&#160;<tspan fill="#e34c26">HTML</tspan>
+  <!-- PHRASE 2 — 5-10s -->
+  <g class="ln glow" style="animation-delay:-5s">
+    <text x="52" y="75" font-family="'SF Mono','Fira Code','Monaco','Courier New',monospace"
+          font-size="18" fill="#c9d1d9" dominant-baseline="middle" letter-spacing="0.2px">
+      <tspan fill="#3572A5" font-weight="600">Python</tspan>&#160;·&#160;
+      <tspan fill="#f0a500" font-weight="600">Java</tspan>&#160;·&#160;
+      <tspan fill="#00ADD8" font-weight="600">Go</tspan>&#160;·&#160;
+      <tspan fill="#f34b7d" font-weight="600">C/C++</tspan>&#160;·&#160;
+      <tspan fill="#e34c26" font-weight="600">HTML</tspan>
     </text>
-    <rect x="494" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
+    <rect x="510" y="64" width="10" height="21" rx="2" fill="#00d4ff" class="cur" filter="url(#cursorGlow)"/>
   </g>
 
-  <!-- PHRASE 3 — t=8 to 12s — delay:-12s -->
-  <g class="ln" style="animation-delay:-12s">
-    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
-          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
-      Full-Stack&#160;<tspan fill="#00d4ff">&amp;</tspan>&#160;Systems&#160;Developer
+  <!-- PHRASE 3 — 10-15s -->
+  <g class="ln glow" style="animation-delay:-10s">
+    <text x="52" y="75" font-family="'SF Mono','Fira Code','Monaco','Courier New',monospace"
+          font-size="18" fill="#c9d1d9" dominant-baseline="middle" letter-spacing="0.2px">
+      Full-Stack&#160;<tspan fill="#00d4ff" font-weight="700">&amp;</tspan>&#160;Systems&#160;Developer
     </text>
-    <rect x="400" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
+    <rect x="410" y="64" width="10" height="21" rx="2" fill="#00d4ff" class="cur" filter="url(#cursorGlow)"/>
   </g>
 
-  <!-- PHRASE 4 — t=12 to 16s — delay:-8s -->
-  <g class="ln" style="animation-delay:-8s">
-    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
-          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
-      Open Source&#160;<tspan fill="#28c840">Contributor</tspan>&#160;&amp;&#160;<tspan fill="#7c3aed">OSS Enthusiast</tspan>
+  <!-- PHRASE 4 — 15-20s -->
+  <g class="ln glow" style="animation-delay:-15s">
+    <text x="52" y="75" font-family="'SF Mono','Fira Code','Monaco','Courier New',monospace"
+          font-size="18" fill="#c9d1d9" dominant-baseline="middle" letter-spacing="0.2px">
+      Open Source&#160;<tspan fill="#28c840" font-weight="700">Contributor</tspan>&#160;&amp;&#160;
+      <tspan fill="#7c3aed" font-weight="700">OSS Enthusiast</tspan>
     </text>
-    <rect x="558" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
+    <rect x="568" y="64" width="10" height="21" rx="2" fill="#00d4ff" class="cur" filter="url(#cursorGlow)"/>
   </g>
 
-  <!-- PHRASE 5 — t=16 to 20s — delay:-4s -->
-  <g class="ln" style="animation-delay:-4s">
-    <text x="50" y="68" font-family="'SF Mono','Menlo','Monaco','Courier New',monospace"
-          font-size="17" fill="#c9d1d9" dominant-baseline="middle">
-      <tspan fill="#00d4ff">Code</tspan>&#160;that clarifies.&#160;<tspan fill="#7c3aed">Stacks</tspan>&#160;that simplify.
+  <!-- PHRASE 5 — 20-25s -->
+  <g class="ln glow" style="animation-delay:-20s">
+    <text x="52" y="75" font-family="'SF Mono','Fira Code','Monaco','Courier New',monospace"
+          font-size="18" fill="#c9d1d9" dominant-baseline="middle" letter-spacing="0.2px">
+      <tspan fill="#00d4ff" font-weight="700">Code</tspan>&#160;that clarifies.&#160;
+      <tspan fill="#7c3aed" font-weight="700">Stacks</tspan>&#160;that simplify.
     </text>
-    <rect x="516" y="57" width="9" height="19" rx="1" fill="#00d4ff" class="cur"/>
+    <rect x="526" y="64" width="10" height="21" rx="2" fill="#00d4ff" class="cur" filter="url(#cursorGlow)"/>
   </g>
 
 </svg>
