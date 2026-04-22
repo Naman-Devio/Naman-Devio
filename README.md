@@ -11,8 +11,7 @@
 <!-- ═══════════════════════════════════════════════════════════ -->
 
 <a href="https://github.com/Naman-Devio">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Hey+there!+I'm+CallMeDev+👋;Python+%7C+Go+%7C+Java+%7C+C%2B%2B;Code+that+clarifies.+Stacks+that+simplify." alt="Typing SVG" />
-</a>
+  <img src="https://raw.githubusercontent.com/Naman-Devio/Naman-Devio/main/assets/typing.svg" width="100%" alt="Typing animation"/>
 
 <br/>
 
