@@ -1,11 +1,10 @@
 <img align="left" src="https://github.com/NAMAN-DEVIO/NAMAN-DEVIO/blob/main/cute.png" alt="Stats" width="300px">
 
-## Halo! I'm Lauren!
-I'm an Artist and a Developer! By the way, let's introduce myself!
-I'm 24 years old, and I've been a developer since 2012 and an artist since 2017, I started studying Visual Basic as my first programming
-language. Then I studied Java programming Android, C++, PHP, and so on over time.
-I love drawing and watching Disney movies in my spare time, my favorite animals are
-Foxes, Sables, and Red Panda.
+## Hey! I'm Naman 🕊
+I'm a Developer and an Anime Enthusiast! Let me introduce myself.
+I'm 18 years old and I've been coding since I was around 9. Ever since childhood, I've been fascinated by technology and always wanted to understand how things work behind the scenes.
+I started my programming journey with C and C++, then moved on to Python, Java (Basics), HTML, and many other technologies. I love building projects, learning new skills, and turning ideas into reality through code.
+When I'm not coding, you'll probably find me watching anime or training calisthenics. My favorite anime are Darling in the Franxx, Naruto, Attack on Titan (AOT), and Dragon Ball.
 
 <h3>Languages, Database, Tools</h3>
 <p>
