@@ -2,7 +2,7 @@
 
 ## Hey! I'm Naman 🕊
 I'm a Developer and an Anime Enthusiast! Let me introduce myself.
-I'm 18 years old and I've been coding since I was around 9. Ever since childhood, I've been fascinated by technology and always wanted to understand how things work behind the scenes.
+I'm 18 years old and I've been coding since I was around 12. Ever since childhood, I've been fascinated by technology and always wanted to understand how things work behind the scenes.
 I started my programming journey with C and C++, then moved on to Python, Java (Basics), HTML, and many other technologies. I love building projects, learning new skills, and turning ideas into reality through code.
 When I'm not coding, you'll probably find me watching anime or training calisthenics. My favorite anime are Darling in the Franxx, Naruto, Attack on Titan (AOT), and Dragon Ball.
 
